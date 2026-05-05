@@ -1,46 +1,25 @@
-# Resume - Free Next.js Resume Website Template
+# Olivia - Portfolio Tailwind CSS template
 #### Preview
 
- - [Demo](https://themewagon.github.io/Resume-Nextjs/)
+ - [Demo](https://themewagon.github.io/olivia/)
 
 #### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/resume-nextjs/)
-
+ - [Download from ThemeWagon](https://themewagon.com/themes/olivia/)
 
 ## Getting Started
 
-Clone from GitHub 
-```bash
-git clone https://github.com/themewagon/Resume-Nextjs.git
+1. Clone Repository
+```
+git clone https://github.com/themewagon/olivia.git
 ```
 
-Install dependencies:
-```bash
-npm install
+## Author 
 ```
-
-Run development server:
-```bash
-npm run dev
+Design and code is completely written by Pixelcave and development team. 
 ```
-
-Build for production:
-```bash
-npm run build
-```
-
-## Author
-
-Design and code are written by the getnextjstemplates design & development team.  
-
 
 ## License
 
- - Design and Code is Copyright &copy; [getnextjstemplates](https://getnextjstemplates.com/)
- - Licensed under [MIT]
- - Distributed by [ThemeWagon](https://themewagon.com)
-
-
-
-
-
+ - Design and Code is Copyright &copy; <a href="https://pixelcave.com/" target="_blank">Pixelcave</a>
+ - Licensed cover under [MIT]
+ - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
