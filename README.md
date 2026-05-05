@@ -1,46 +1,34 @@
-# Resume - Free Next.js Resume Website Template
+# Atom - A vibrant portfolio template
 #### Preview
 
- - [Demo](https://themewagon.github.io/Resume-Nextjs/)
+ - [Demo](https://themewagon.github.io/atom/)
 
 #### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/resume-nextjs/)
-
+ - [Download from ThemeWagon](https://themewagon.com/themes/atom/)
 
 ## Getting Started
 
-Clone from GitHub 
+1. Clone Repository
+```
+git clone https://github.com/themewagon/atom.git
+```
+2. Install Dependencies
+```
+npm i
+```
+3. Run the development server:
+
 ```bash
-git clone https://github.com/themewagon/Resume-Nextjs.git
+npm serve .
 ```
 
-Install dependencies:
-```bash
-npm install
+## Author 
 ```
-
-Run development server:
-```bash
-npm run dev
+Design and code is completely written by Red Pixel Themes and development team. 
 ```
-
-Build for production:
-```bash
-npm run build
-```
-
-## Author
-
-Design and code are written by the getnextjstemplates design & development team.  
-
 
 ## License
 
- - Design and Code is Copyright &copy; [getnextjstemplates](https://getnextjstemplates.com/)
- - Licensed under [MIT]
- - Distributed by [ThemeWagon](https://themewagon.com)
-
-
-
-
-
+ - Design and Code is Copyright &copy; <a href="https://redpixelthemes.gumroad.com/" target="_blank">Red Pixel Themes</a>
+ - Licensed cover under [MIT]
+ - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>

@@ -14,13 +14,10 @@ module.exports = {
       ...defaultTheme.screens,
     },
 
-colors: {
+    colors: {
       transparent: "transparent",
-      primary: "#0f172a",       // Deep Navy Blue (Slate 900)
-      secondary: "#1e293b",     // Slate 800
-      accent: "#14b8a6",       // Teal 500 - modern masculine accent
-      "accent-dark": "#0d9488", // Teal 600
-      "accent-light": "#5eead4", // Teal 300
+      primary: "#5540af",
+      secondary: "#252426",
       white: "#ffffff",
       black: "#000000",
       yellow: "#f9e71c",
@@ -32,10 +29,10 @@ colors: {
       "grey-50": "#f4f3f8",
       "grey-60": "#edebf6",
       "grey-70": "#d8d8d8",
-      "hero-gradient-from": "rgba(15, 23, 42, 0.95)",
-      "hero-gradient-to": "rgba(30, 41, 59, 0.93)",
-      "blog-gradient-from": "#1e293b",
-      "blog-gradient-to": "#0f172a",
+      "hero-gradient-from": "rgba(85, 64, 174, 0.95)",
+      "hero-gradient-to": "rgba(65, 47, 144, 0.93)",
+      "blog-gradient-from": "#8f9098",
+      "blog-gradient-to": "#222222",
     },
 
     container: {
