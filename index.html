@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="utf-8" />
 
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
@@ -10,9 +10,9 @@
     name="viewport"
   />
 
-  <title>Homepage | Atom Template</title>
+  <title>Portfolio | Modern Male Design</title>
 
-  <meta property="og:title" content="Homepage | Atom Template" />
+  <meta property="og:title" content="Portfolio | Modern Male Design" />
 
   <meta property="og:locale" content="en_US" />
 
@@ -28,21 +28,22 @@
 
   <meta
     name="description"
-    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content="Professional Portfolio - Web Developer & Designer"
   />
 
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
 
-  <meta name="theme-color" content="#5540af" />
+  <meta name="theme-color" content="#0f172a" />
 
-  <meta property="og:site_name" content="Atom Template" />
+  <meta property="og:site_name" content="Portfolio" />
 
   <meta property="og:image" content="//assets/img/social.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="twitter:site" content="@tailwindmade" />
+  <meta name="twitter:site" content="@portfolio" />
 
+  <!-- Google Fonts - Modern & Clean -->
   <link
     crossorigin="crossorigin"
     href="https://fonts.gstatic.com"
@@ -51,26 +52,186 @@
 
   <link
     as="style"
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="preload"
   />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
+  <!-- BoxIcons -->
   <link
     href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
     rel="stylesheet"
   />
 
+  <!-- Main Styles -->
   <link
     crossorigin="anonymous"
     href="/assets/styles/main.min.css"
     media="screen"
     rel="stylesheet"
   />
+
+  <!-- CSS Custom Properties for Modern Color Scheme -->
+  <style>
+    :root {
+      /* Deep Navy Blue + Teal - Modern Masculine Palette */
+      --color-primary: #0f172a;
+      --color-primary-light: #1e293b;
+      --color-primary-dark: #020617;
+      --color-accent: #14b8a6;
+      --color-accent-dark: #0d9488;
+      --color-accent-light: #5eead4;
+      --color-accent-muted: #99f6e4;
+      
+      /* Override Tailwind Colors */
+      --color-primary-rgb: 15, 23, 42;
+      --color-secondary: #1e293b;
+    }
+    
+    /* Override text colors */
+    .text-primary {
+      color: var(--color-primary) !important;
+    }
+    
+    /* Override background colors */
+    .bg-primary {
+      background-color: var(--color-primary) !important;
+    }
+    
+    /* Override border colors */
+    .border-primary {
+      border-color: var(--color-primary) !important;
+    }
+    
+    /* Accent color utilities */
+    .text-accent {
+      color: var(--color-accent) !important;
+    }
+    
+    .bg-accent {
+      background-color: var(--color-accent) !important;
+    }
+    
+    .hover\:text-accent:hover {
+      color: var(--color-accent) !important;
+    }
+    
+    .hover\:bg-accent:hover {
+      background-color: var(--color-accent) !important;
+    }
+    
+    /* Gradient backgrounds */
+    .bg-gradient-to-r.from-hero-gradient-from {
+      background-color: var(--color-primary) !important;
+    }
+    
+    .bg-gradient-to-r.to-hero-gradient-to {
+      background-color: var(--color-primary-light) !important;
+    }
+    
+    /* Override service cards hover */
+    .group:hover.rounded {
+      background-color: var(--color-primary) !important;
+    }
+    
+    /* Custom scrollbar for modern feel */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--color-primary-dark);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-accent);
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent-dark);
+    }
+    
+    /* Map container styles */
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(20%) contrast(1.1);
+      transition: filter 0.3s ease;
+    }
+    
+    .map-container:hover iframe {
+      filter: grayscale(0%) contrast(1);
+    }
+    
+    /* Modern card animations */
+    .modern-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .modern-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    }
+    
+    /* Animated gradient background for hero */
+    .hero-animated {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Button styles */
+    .btn-modern {
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-modern:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(20, 184, 166, 0.3);
+    }
+    
+    /* Skill bar animation */
+    .skill-bar {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shimmer 2s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+  </style>
   
   <script
     defer
@@ -1227,10 +1388,22 @@
   </div>
 </div>
 
-<div
-  class="h-72 bg-cover bg-center bg-no-repeat sm:h-64 md:h-72 lg:h-96"
-  style="background-image: url(/assets/img/map.png)"
-></div>
+<!-- Interactive Google Maps - Replace the src with your location -->
+<!-- To change location: 
+  1. Go to Google Maps (maps.google.com)
+  2. Search for your location
+  3. Click Share > Embed a map
+  4. Copy the iframe src and replace below
+-->
+<div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.288446553569!2d106.84501359999999!3d-6.2087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3dc8a888d93%3A0xc29b581cef7abf!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade"
+    title="My Location">
+  </iframe>
+</div>
 
 <div
   class="relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"
