@@ -69,6 +69,20 @@
       .bounding-box {
         animation: pulse-border 2s infinite;
       }
+
+      /* Animasi Simulasi Deteksi AI */
+      @keyframes scan {
+        0% { transform: translateY(-100%); opacity: 0; }
+        10%, 90% { opacity: 1; }
+        100% { transform: translateY(200px); opacity: 0; }
+      }
+      @keyframes detect-box {
+        0%, 100% { opacity: 0; transform: scale(0.95); }
+        20%, 80% { opacity: 1; transform: scale(1); }
+      }
+      .detect-1 { animation: detect-box 3s infinite 0.2s; }
+      .detect-2 { animation: detect-box 3.5s infinite 1.5s; }
+      .detect-3 { animation: detect-box 2.5s infinite 0.8s; }
     </style>
   </head>
 
@@ -98,8 +112,8 @@
     x-init="if(darkMode) document.documentElement.classList.add('dark')"
     @mousemove.window="mouseX = $event.clientX; mouseY = $event.clientY"
   >
-    <div class="pointer-events-none fixed inset-0 z-[40] transition-opacity duration-300"
-         :style="`background: radial-gradient(600px circle at ${mouseX}px ${mouseY}px, ${darkMode ? 'rgba(34, 211, 238, 0.05)' : 'rgba(34, 211, 238, 0.03)'}, transparent 40%);` focus:outline-none">
+    <div class="pointer-events-none fixed inset-0 z-[40] transition-opacity duration-300 focus:outline-none"
+        :style="`background: radial-gradient(600px circle at ${mouseX}px ${mouseY}px, ${darkMode ? 'rgba(34, 211, 238, 0.05)' : 'rgba(34, 211, 238, 0.03)'}, transparent 40%);`">
     </div>
     <div class="fixed inset-0 z-0 pointer-events-none bg-mesh"></div>
     <div class="noise-overlay"></div>
@@ -139,12 +153,12 @@
             <div class="mt-8">
               <a href="assets/Zidni Robby Rodhiya-resume.pdf" download class="inline-flex items-center gap-2 rounded-full bg-slate-900 dark:bg-white px-6 py-3.5 text-sm font-bold text-white dark:text-slate-900 shadow-xl transition-all hover:scale-105 active:scale-95 dark:hover:shadow-cyan-500/20">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5"><path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" /></svg>
-                Download My Resume
+                Download Resume
               </a>
             </div>
           </div>
 
-          <div class="reveal group relative col-span-1 md:col-span-1 row-span-2 overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-2 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+          <div class="reveal group relative col-span-1 md:col-span-1 row-span-2 overflow-hidden rounded-3xl border border-white/60 bg-white/40 p-2 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/40">
             <div class="relative h-full w-full overflow-hidden rounded-2xl">
               <img src="assets/Casual Professional.jpeg" alt="Zidni" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div class="bounding-box absolute top-[10%] left-[15%] right-[15%] bottom-[15%] border-2 border-dashed border-cyan-400 z-10 transition-opacity opacity-70 group-hover:opacity-100">
@@ -168,41 +182,17 @@
             </div>
           </div>
 
-          <div class="reveal col-span-1 md:col-span-1 rounded-3xl border border-slate-800 bg-[#0d1117] p-5 shadow-2xl overflow-hidden code-block dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-               x-data="{
-                 lines: [
-                   '<span class=\'text-pink-400\'>const</span> <span class=\'text-blue-400\'>profile</span> <span class=\'text-cyan-400\'>=</span> {',
-                   '&nbsp;&nbsp;<span class=\'text-slate-400\'>hobby:</span> <span class=\'text-green-300\'>&quot;PES Manager&quot;</span>,',
-                   '&nbsp;&nbsp;<span class=\'text-slate-400\'>habit:</span> <span class=\'text-green-300\'>&quot;80% battery cap&quot;</span>,',
-                   '&nbsp;&nbsp;<span class=\'text-slate-400\'>focus:</span> [<span class=\'text-green-300\'>&quot;IELTS&quot;</span>, <span class=\'text-green-300\'>&quot;AI&quot;</span>]',
-                   '};',
-                   '<span class=\'text-cyan-400\'>console</span>.log(<span class=\'text-blue-400\'>profile</span>);'
-                 ],
-                 displayed: [],
-                 init() {
-                   let i = 0;
-                   setTimeout(() => {
-                     let int = setInterval(() => {
-                       if(i < this.lines.length) {
-                         this.displayed.push(this.lines[i]);
-                         i++;
-                       } else {
-                         clearInterval(int);
-                       }
-                     }, 400); // Kecepatan ngetik per baris
-                   }, 800); // Delay sebelum mulai
-                 }
-               }">
+          <div class="reveal col-span-1 md:col-span-1 rounded-3xl border border-slate-800 bg-[#0d1117] p-5 shadow-2xl overflow-hidden code-block dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]" x-data="terminalEffect">
             <div class="flex gap-2 mb-4">
               <div class="size-3 rounded-full bg-red-500"></div>
               <div class="size-3 rounded-full bg-yellow-500"></div>
               <div class="size-3 rounded-full bg-green-500"></div>
             </div>
-            <div class="font-mono text-xs leading-relaxed text-slate-300">
+            <div class="font-mono text-xs leading-relaxed text-slate-300 min-h-[100px]">
               <template x-for="line in displayed">
                 <div x-html="line"></div>
               </template>
-              <div><span class="animate-pulse text-white">_</span></div>
+              <div><span class="animate-pulse text-cyan-400">_</span></div>
             </div>
           </div>
 
@@ -230,18 +220,32 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          
           <button @click="openModal({
               title: 'Agri Object Detection',
               stack: 'YOLOv8 • Faster R-CNN',
               image: 'assets/UltralyticsYolo.webp',
-              challenge: 'Monitoring vast pineapple fields manually at PT GGP is time-consuming and prone to human error.',
-              solution: 'Trained and optimized state-of-the-art YOLOv8 and Faster R-CNN object detection models to accurately identify specific agricultural features (SC) from high-resolution drone orthomosaics.',
-              impact: 'Achieved high confidence detection, allowing for automated monitoring, faster mapping, and data-driven agricultural decisions.'
+              description: 'Monitoring vast pineapple fields manually at PT GGP is time-consuming and prone to human error. To solve this, I trained and optimized state-of-the-art YOLOv8 and Faster R-CNN object detection models to accurately identify specific agricultural features (SC) from high-resolution drone orthomosaics. This achieved high confidence detection, allowing for automated monitoring, faster mapping, and data-driven agricultural decisions.'
             })" 
-            class="text-left w-full reveal group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-6 backdrop-blur-xl hover:-translate-y-2 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60 dark:hover:shadow-cyan-500/20 dark:hover:-translate-y-1 transition-all focus:outline-none focus:ring-4 focus:ring-cyan-500/30">
-            <div class="mb-4 w-full overflow-hidden rounded-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-700/50 dark:bg-slate-800/80">
+            class="text-left w-full reveal group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-6 backdrop-blur-xl hover:-translate-y-2 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60 dark:hover:shadow-cyan-500/20 dark:hover:-translate-y-1 transition-all focus:outline-none">
+            
+            <div class="mb-4 w-full relative overflow-hidden rounded-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-700/50 dark:bg-slate-800/80">
               <img src="assets/UltralyticsYolo.webp" alt="CV Project" class="w-full h-40 object-cover mix-blend-multiply dark:mix-blend-normal transition-transform duration-500 group-hover:scale-105" />
+              
+              <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div class="absolute left-0 right-0 top-0 h-0.5 bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-[scan_2.5s_linear_infinite]"></div>
+                <div class="absolute top-[20%] left-[10%] w-[30%] h-[40%] border-2 border-cyan-400 bg-cyan-400/10 detect-1">
+                  <div class="absolute -top-4 left-[-2px] bg-cyan-400 px-1 text-[8px] font-mono font-bold text-slate-900">SC 0.98</div>
+                </div>
+                <div class="absolute top-[35%] right-[20%] w-[25%] h-[45%] border-2 border-cyan-400 bg-cyan-400/10 detect-2">
+                  <div class="absolute -top-4 left-[-2px] bg-cyan-400 px-1 text-[8px] font-mono font-bold text-slate-900">SC 0.95</div>
+                </div>
+                <div class="absolute bottom-[10%] left-[40%] w-[20%] h-[35%] border-2 border-cyan-400 bg-cyan-400/10 detect-3">
+                  <div class="absolute -top-4 left-[-2px] bg-cyan-400 px-1 text-[8px] font-mono font-bold text-slate-900">SC 0.91</div>
+                </div>
+              </div>
             </div>
+
             <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white">Agri Object Detection</h3>
             <h4 class="mt-1 text-xs font-semibold text-cyan-600 dark:text-cyan-400">YOLOv8 • Faster R-CNN</h4>
             <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">Trained object detection models to identify agricultural features from drone orthomosaics for GGP.</p>
@@ -251,11 +255,9 @@
               title: 'DIGGIE AI Glossary',
               stack: 'Laravel • Docker • Backend',
               image: 'assets/DIGGIE.png',
-              challenge: 'Employees across different divisions lacked a unified, standardized technical terminology system, leading to miscommunication.',
-              solution: 'Developed an internal corporate platform using a scalable Laravel architecture, fully containerized with Docker to ensure consistent deployment environments.',
-              impact: 'Centralized the company\'s knowledge base, making it significantly easier and faster for employees to search and understand internal acronyms and terms.'
+              description: 'Employees across different divisions lacked a unified, standardized technical terminology system, leading to miscommunication. I developed an internal corporate platform using a scalable Laravel architecture, fully containerized with Docker to ensure consistent deployment environments. This centralized the company\'s knowledge base, making it significantly easier and faster for employees to search and understand internal acronyms and terms.'
             })" 
-            class="text-left w-full reveal group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-6 backdrop-blur-xl hover:-translate-y-2 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60 dark:hover:shadow-blue-500/20 dark:hover:-translate-y-1 transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/30">
+            class="text-left w-full reveal group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-6 backdrop-blur-xl hover:-translate-y-2 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60 dark:hover:shadow-blue-500/20 dark:hover:-translate-y-1 transition-all focus:outline-none">
             <div class="mb-4 w-full overflow-hidden rounded-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-700/50 dark:bg-slate-800/80">
               <img src="assets/DIGGIE.png" alt="DIGGIE Project" class="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
@@ -268,11 +270,9 @@
               title: 'GEMASTIK Representative',
               stack: 'Business Dev • ICT',
               image: 'assets/LogoDiktisaintek.png',
-              challenge: 'Needed to formulate a technology-driven business proposal that solves real-world issues while remaining economically viable.',
-              solution: 'Represented the university by researching, designing, and proposing an innovative ICT Business Development strategy.',
-              impact: 'Demonstrated strong analytical and presentation skills, effectively bridging the gap between raw technological capability and market needs.'
+              description: 'Representing the university, the challenge was to formulate a technology-driven business proposal that solves real-world issues while remaining economically viable. I researched, designed, and proposed an innovative ICT Business Development strategy, demonstrating strong analytical and presentation skills to effectively bridge the gap between raw technological capability and market needs.'
             })" 
-            class="text-left w-full reveal group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-6 backdrop-blur-xl hover:-translate-y-2 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60 dark:hover:shadow-purple-500/20 dark:hover:-translate-y-1 transition-all focus:outline-none focus:ring-4 focus:ring-purple-500/30">
+            class="text-left w-full reveal group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/50 bg-white/80 p-6 backdrop-blur-xl hover:-translate-y-2 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60 dark:hover:shadow-purple-500/20 dark:hover:-translate-y-1 transition-all focus:outline-none">
             <div class="mb-4 flex w-full items-center justify-center h-40 overflow-hidden rounded-2xl border border-slate-200/50 bg-white p-4 dark:border-slate-600/50 dark:bg-slate-800/80">
               <img src="assets/LogoDiktisaintek.png" alt="GEMASTIK" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
             </div>
@@ -292,7 +292,6 @@
                 Whether it's a technical challenge, a machine learning opportunity, or a discussion about code architecture, my inbox is open.
               </p>
             </div>
-
             <div class="rounded-2xl border border-slate-200/50 bg-white/80 p-6 md:p-8 backdrop-blur-md dark:border-slate-600/50 dark:bg-slate-800/60">
               <form action="https://formspree.io/f/mwvybqbr" method="POST" class="w-full space-y-5">
                 <input type="text" name="name" placeholder="Name" required class="block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none dark:bg-slate-900/50 dark:text-white dark:border-slate-600 dark:placeholder-slate-500" />
@@ -324,11 +323,11 @@
     </div>
 
     <div x-cloak x-show="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-      <div x-show="isModalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm" @click="closeModal()"></div>
+      <div x-show="isModalOpen" x-transition.opacity duration.300ms class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm" @click="closeModal()"></div>
       
-      <div x-show="isModalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="relative z-10 w-full max-w-3xl overflow-hidden rounded-[2rem] bg-white dark:bg-slate-900 shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col max-h-[90vh]">
+      <div x-show="isModalOpen" x-transition.scale.95.opacity duration.300ms class="relative z-10 w-full max-w-2xl overflow-hidden rounded-[2rem] bg-white dark:bg-slate-900 shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col max-h-[90vh]">
         
-        <button @click="closeModal()" class="absolute top-4 right-4 z-20 rounded-full bg-black/50 p-2 text-white hover:bg-black/80 transition-colors focus:outline-none">
+        <button @click="closeModal()" class="absolute top-4 right-4 z-20 rounded-full bg-black/50 p-2 text-white hover:bg-black/80 transition-colors">
           <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
 
@@ -338,24 +337,42 @@
           <div class="text-xs font-bold text-cyan-600 dark:text-cyan-400 mb-2 uppercase tracking-wider" x-text="activeProject.stack"></div>
           <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-6" x-text="activeProject.title"></h2>
 
-          <div class="space-y-6">
-            <div class="rounded-xl bg-slate-50 dark:bg-slate-800/50 p-5 border border-slate-100 dark:border-slate-800">
-              <h3 class="text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">The Challenge</h3>
-              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed" x-text="activeProject.challenge"></p>
-            </div>
-            <div class="rounded-xl bg-slate-50 dark:bg-slate-800/50 p-5 border border-slate-100 dark:border-slate-800">
-              <h3 class="text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">The Solution</h3>
-              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed" x-text="activeProject.solution"></p>
-            </div>
-            <div class="rounded-xl bg-slate-50 dark:bg-slate-800/50 p-5 border border-slate-100 dark:border-slate-800">
-              <h3 class="text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">The Impact</h3>
-              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed" x-text="activeProject.impact"></p>
-            </div>
+          <div class="rounded-xl bg-slate-50 dark:bg-slate-800/50 p-6 border border-slate-100 dark:border-slate-800">
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed" x-text="activeProject.description"></p>
           </div>
         </div>
 
       </div>
     </div>
+
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('terminalEffect', () => ({
+          lines: [
+            '<span class="text-pink-400">const</span> <span class="text-blue-400">profile</span> <span class="text-cyan-400">=</span> {',
+            '&nbsp;&nbsp;<span class="text-slate-400">hobby:</span> <span class="text-green-300">"PES Manager"</span>,',
+            '&nbsp;&nbsp;<span class="text-slate-400">habit:</span> <span class="text-green-300">"80% battery cap"</span>,',
+            '&nbsp;&nbsp;<span class="text-slate-400">focus:</span> [<span class="text-green-300">"IELTS"</span>, <span class="text-green-300">"AI"</span>]',
+            '};',
+            '<span class="text-cyan-400">console</span>.log(<span class="text-blue-400">profile</span>);'
+          ],
+          displayed: [],
+          init() {
+            let i = 0;
+            setTimeout(() => {
+              let int = setInterval(() => {
+                if(i < this.lines.length) {
+                  this.displayed.push(this.lines[i]);
+                  i++;
+                } else {
+                  clearInterval(int);
+                }
+              }, 400); // 400ms per baris, silakan ubah jika ingin lebih lambat/cepat
+            }, 800);
+          }
+        }))
+      })
+    </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
