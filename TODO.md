@@ -1,15 +1,14 @@
-# Modern Portfolio Redesign - TODO
+# TODO - Portfolio Enhancements
 
-## Design Upgrade Tasks
+## Phase 1: Core Features
+- [ ] Add resume download link
+- [ ] Create project detail modals
+- [ ] Add multi-language support (EN/ID)
 
-- [ ] Implement modern blue-purple-cyan gradient color palette
-- [ ] Add glassmorphism effects with backdrop blur
-- [ ] Enhance typography with better fonts (Outfit/Space Grotesk)
-- [ ] Add smooth hover animations and transitions
-- [ ] Improve dark mode equivalent quality
-- [ ] Modernize project cards with better styling
-- [ ] Enhance contact form with glass effects
-- [ ] Add animated gradient backgrounds
-- [ ] Polish footer and navigation
+## Phase 2: Performance
+- [ ] Add lazy loading to images
+- [ ] Optimize images
 
-## Implementation Status: PENDING
+## Notes
+- Place resume PDF in assets folder as `resume.pdf`
+- Multi-language will use Alpine.js for data management
